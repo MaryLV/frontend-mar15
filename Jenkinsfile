@@ -4,10 +4,9 @@ pipeline {
       stage('Stage 1') {
           steps{
               echo 'Retrieving source code'
-              git branch 'master',
-                  url: 'https://github.com/MaryLV/frontend-mar15.git'
-                echo 'Source code is here'
-                sh 'ls -a'
+              git 'https://github.com/MaryLV/frontend-mar15.git'
+              echo 'Source code is here'
+              sh 'ls -a'
           }
       }
       stage('Stage 2'){
@@ -44,7 +43,7 @@ pipeline {
               echo 'Update the image'
               echo "gcr.io/mar-roidtc302/external-container:v2.${env.BUILD_ID}"
               sh "kubectl set image deployment/events-external events-external=gcr.io/mar-roidtc302/external-container:v2.${env.BUILD_ID}"
-
           }
       }
+}
 }
