@@ -15,7 +15,9 @@ describe('GET /', function () {
         "status": 200,
         "events": [
           { "title": 'an event', "id": 1234, "description": 'something really cool' },
-          { "title": 'another event', id: 5678, "description": 'something even cooler' }
+          { "title": 'another event', id: 5678, "description": 'something even cooler' },
+          { "title": 'oh my god', "id": 8910, "description": 'what a day' },
+          { "title": 'cannot believe', id: 1144, "description": 'this is happening' }          
         ]
       });
 
@@ -75,6 +77,8 @@ describe('POST /event', function () {
         "events": [
           { title: 'an event', id: 1, description: 'something really cool' },
           { title: 'another event', id: 2, description: 'something even cooler' },
+          { title: 'oh my god', id: 3, description: 'what a day' },
+          { title: 'cannot believe', id: 4, description: 'this is happening' }           
           data
         ]
       });
