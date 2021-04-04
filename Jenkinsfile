@@ -17,7 +17,7 @@ pipeline {
                 sh 'gcloud version'
                 sh 'nodejs -v'
                 sh 'npm -v'
-                sh 'java -v'
+                sh 'java --version'
             }
         }
     }
