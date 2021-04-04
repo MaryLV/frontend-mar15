@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Verifying Jenkins trigger of build extract from Git Repo...'
                 git branch: 'master',
-                    url: 'https://github.com/MaryLV/kubernetes-eventsapp.git'
+                    url: 'https://github.com/MaryLV/frontend-mar15.git'
                 echo 'Did we get the source code from Git Repo?'
                 sh 'ls -al'
             }
