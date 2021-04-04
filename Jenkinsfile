@@ -55,7 +55,7 @@ pipeline {
         stage('Build the Docker Image with new code changes') {
             steps {
                 echo 'Tests passed and ready to build the docker image and push to container registry'
-                sh 'gcloud builds submit -t gcr.io/devops-2021-308721/mv-frontend-image:v1.${BUILD_NUMBER} .'
+                sh 'gcloud builds submit -t gcr.io/devops-2021-308721/mv-frontend-gkeimage:v1.${BUILD_NUMBER} .'
             }
         }
         stage('Deploy the Newly Created Image onto Containers') {
@@ -63,7 +63,7 @@ pipeline {
                 echo 'Get Cluster Credentials'
                 sh 'gcloud container clusters get-credentials mv-terradev-cluster --zone us-central1-a --project devops-2021-308721'
                 echo 'Deploy the containers with new image'
-                sh 'kubectl set image deployment/frontend-deployment terradev-frontend=gcr.io/devops-2021-308721/mv-frontend-image:v1.${BUILD_NUMBER} -n terradev --record'
+                sh 'kubectl set image deployment/frontend-deployment terradev-frontend=gcr.io/devops-2021-308721/mv-frontend-gkeimage:v1.${BUILD_NUMBER} -n terradev --record'
             }
         }        
     }
